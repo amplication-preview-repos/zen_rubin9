@@ -5,5 +5,7 @@ import { StringFilter } from "../../util/StringFilter";
 export type DbcCategoryWhereInput = {
   categoryName?: StringNullableFilter;
   dbcParsedDataItems?: DbcParsedDataListRelationFilter;
+  description?: StringNullableFilter;
   id?: StringFilter;
+  typeField?: StringNullableFilter;
 };

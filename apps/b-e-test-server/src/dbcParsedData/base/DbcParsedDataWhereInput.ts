@@ -15,7 +15,12 @@ import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
 import { DbcCategoryWhereUniqueInput } from "../../dbcCategory/base/DbcCategoryWhereUniqueInput";
+import { DeviceWhereUniqueInput } from "../../device/base/DeviceWhereUniqueInput";
+import { FileImportLogWhereUniqueInput } from "../../fileImportLog/base/FileImportLogWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
 
 @InputType()
 class DbcParsedDataWhereInput {
@@ -43,6 +48,17 @@ class DbcParsedDataWhereInput {
 
   @ApiProperty({
     required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  dataType?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
     type: () => DbcCategoryWhereUniqueInput,
   })
   @ValidateNested()
@@ -66,6 +82,30 @@ class DbcParsedDataWhereInput {
 
   @ApiProperty({
     required: false,
+    type: () => DeviceWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => DeviceWhereUniqueInput)
+  @IsOptional()
+  @Field(() => DeviceWhereUniqueInput, {
+    nullable: true,
+  })
+  device?: DeviceWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => FileImportLogWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => FileImportLogWhereUniqueInput)
+  @IsOptional()
+  @Field(() => FileImportLogWhereUniqueInput, {
+    nullable: true,
+  })
+  fileImportLog?: FileImportLogWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
     type: StringFilter,
   })
   @Type(() => StringFilter)
@@ -74,6 +114,51 @@ class DbcParsedDataWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  rawData?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: IntNullableFilter,
+  })
+  @Type(() => IntNullableFilter)
+  @IsOptional()
+  @Field(() => IntNullableFilter, {
+    nullable: true,
+  })
+  sourceLine?: IntNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => UserWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => UserWhereUniqueInput)
+  @IsOptional()
+  @Field(() => UserWhereUniqueInput, {
+    nullable: true,
+  })
+  user?: UserWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: BooleanNullableFilter,
+  })
+  @Type(() => BooleanNullableFilter)
+  @IsOptional()
+  @Field(() => BooleanNullableFilter, {
+    nullable: true,
+  })
+  valid?: BooleanNullableFilter;
 }
 
 export { DbcParsedDataWhereInput as DbcParsedDataWhereInput };

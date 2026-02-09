@@ -11,14 +11,23 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+
 import {
   IsString,
   MaxLength,
   IsOptional,
   ValidateNested,
+  IsInt,
+  Min,
+  Max,
+  IsBoolean,
 } from "class-validator";
+
 import { DbcCategoryWhereUniqueInput } from "../../dbcCategory/base/DbcCategoryWhereUniqueInput";
 import { Type } from "class-transformer";
+import { DeviceWhereUniqueInput } from "../../device/base/DeviceWhereUniqueInput";
+import { FileImportLogWhereUniqueInput } from "../../fileImportLog/base/FileImportLogWhereUniqueInput";
+import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
 
 @InputType()
 class DbcParsedDataCreateInput {
@@ -48,6 +57,18 @@ class DbcParsedDataCreateInput {
 
   @ApiProperty({
     required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  dataType?: string | null;
+
+  @ApiProperty({
+    required: false,
     type: () => DbcCategoryWhereUniqueInput,
   })
   @ValidateNested()
@@ -69,6 +90,78 @@ class DbcParsedDataCreateInput {
     nullable: true,
   })
   description?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => DeviceWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => DeviceWhereUniqueInput)
+  @IsOptional()
+  @Field(() => DeviceWhereUniqueInput, {
+    nullable: true,
+  })
+  device?: DeviceWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => FileImportLogWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => FileImportLogWhereUniqueInput)
+  @IsOptional()
+  @Field(() => FileImportLogWhereUniqueInput, {
+    nullable: true,
+  })
+  fileImportLog?: FileImportLogWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  rawData?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsInt()
+  @Min(-999999999)
+  @Max(999999999)
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  sourceLine?: number | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => UserWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => UserWhereUniqueInput)
+  @IsOptional()
+  @Field(() => UserWhereUniqueInput, {
+    nullable: true,
+  })
+  user?: UserWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: Boolean,
+  })
+  @IsBoolean()
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  valid?: boolean | null;
 }
 
 export { DbcParsedDataCreateInput as DbcParsedDataCreateInput };

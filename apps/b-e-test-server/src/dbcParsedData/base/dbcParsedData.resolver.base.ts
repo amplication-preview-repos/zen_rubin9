@@ -21,6 +21,9 @@ import { CreateDbcParsedDataArgs } from "./CreateDbcParsedDataArgs";
 import { UpdateDbcParsedDataArgs } from "./UpdateDbcParsedDataArgs";
 import { DeleteDbcParsedDataArgs } from "./DeleteDbcParsedDataArgs";
 import { DbcCategory } from "../../dbcCategory/base/DbcCategory";
+import { Device } from "../../device/base/Device";
+import { FileImportLog } from "../../fileImportLog/base/FileImportLog";
+import { User } from "../../user/base/User";
 import { DbcParsedDataService } from "../dbcParsedData.service";
 @graphql.Resolver(() => DbcParsedData)
 export class DbcParsedDataResolverBase {
@@ -67,6 +70,24 @@ export class DbcParsedDataResolverBase {
               connect: args.data.dbcCategory,
             }
           : undefined,
+
+        device: args.data.device
+          ? {
+              connect: args.data.device,
+            }
+          : undefined,
+
+        fileImportLog: args.data.fileImportLog
+          ? {
+              connect: args.data.fileImportLog,
+            }
+          : undefined,
+
+        user: args.data.user
+          ? {
+              connect: args.data.user,
+            }
+          : undefined,
       },
     });
   }
@@ -84,6 +105,24 @@ export class DbcParsedDataResolverBase {
           dbcCategory: args.data.dbcCategory
             ? {
                 connect: args.data.dbcCategory,
+              }
+            : undefined,
+
+          device: args.data.device
+            ? {
+                connect: args.data.device,
+              }
+            : undefined,
+
+          fileImportLog: args.data.fileImportLog
+            ? {
+                connect: args.data.fileImportLog,
+              }
+            : undefined,
+
+          user: args.data.user
+            ? {
+                connect: args.data.user,
               }
             : undefined,
         },
@@ -122,6 +161,49 @@ export class DbcParsedDataResolverBase {
     @graphql.Parent() parent: DbcParsedData
   ): Promise<DbcCategory | null> {
     const result = await this.service.getDbcCategory(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
+  }
+
+  @graphql.ResolveField(() => Device, {
+    nullable: true,
+    name: "device",
+  })
+  async getDevice(
+    @graphql.Parent() parent: DbcParsedData
+  ): Promise<Device | null> {
+    const result = await this.service.getDevice(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
+  }
+
+  @graphql.ResolveField(() => FileImportLog, {
+    nullable: true,
+    name: "fileImportLog",
+  })
+  async getFileImportLog(
+    @graphql.Parent() parent: DbcParsedData
+  ): Promise<FileImportLog | null> {
+    const result = await this.service.getFileImportLog(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
+  }
+
+  @graphql.ResolveField(() => User, {
+    nullable: true,
+    name: "user",
+  })
+  async getUser(@graphql.Parent() parent: DbcParsedData): Promise<User | null> {
+    const result = await this.service.getUser(parent.id);
 
     if (!result) {
       return null;

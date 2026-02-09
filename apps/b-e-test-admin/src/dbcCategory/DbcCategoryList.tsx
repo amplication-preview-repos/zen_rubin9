@@ -13,7 +13,9 @@ export const DbcCategoryList = (props: ListProps): React.ReactElement => {
       <Datagrid rowClick="show" bulkActionButtons={false}>
         <TextField label="categoryName" source="categoryName" />
         <DateField source="createdAt" label="Created At" />
+        <TextField label="description" source="description" />
         <TextField label="ID" source="id" />
+        <TextField label="type" source="typeField" />
         <DateField source="updatedAt" label="Updated At" />{" "}
       </Datagrid>
     </List>

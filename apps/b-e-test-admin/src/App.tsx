@@ -13,6 +13,18 @@ import { DbcParsedDataList } from "./dbcParsedData/DbcParsedDataList";
 import { DbcParsedDataCreate } from "./dbcParsedData/DbcParsedDataCreate";
 import { DbcParsedDataEdit } from "./dbcParsedData/DbcParsedDataEdit";
 import { DbcParsedDataShow } from "./dbcParsedData/DbcParsedDataShow";
+import { FileImportLogList } from "./fileImportLog/FileImportLogList";
+import { FileImportLogCreate } from "./fileImportLog/FileImportLogCreate";
+import { FileImportLogEdit } from "./fileImportLog/FileImportLogEdit";
+import { FileImportLogShow } from "./fileImportLog/FileImportLogShow";
+import { DeviceList } from "./device/DeviceList";
+import { DeviceCreate } from "./device/DeviceCreate";
+import { DeviceEdit } from "./device/DeviceEdit";
+import { DeviceShow } from "./device/DeviceShow";
+import { UserList } from "./user/UserList";
+import { UserCreate } from "./user/UserCreate";
+import { UserEdit } from "./user/UserEdit";
+import { UserShow } from "./user/UserShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -39,6 +51,27 @@ const App = (): React.ReactElement => {
           edit={DbcParsedDataEdit}
           create={DbcParsedDataCreate}
           show={DbcParsedDataShow}
+        />
+        <Resource
+          name="FileImportLog"
+          list={FileImportLogList}
+          edit={FileImportLogEdit}
+          create={FileImportLogCreate}
+          show={FileImportLogShow}
+        />
+        <Resource
+          name="Device"
+          list={DeviceList}
+          edit={DeviceEdit}
+          create={DeviceCreate}
+          show={DeviceShow}
+        />
+        <Resource
+          name="User"
+          list={UserList}
+          edit={UserEdit}
+          create={UserCreate}
+          show={UserShow}
         />
       </Admin>
     </div>

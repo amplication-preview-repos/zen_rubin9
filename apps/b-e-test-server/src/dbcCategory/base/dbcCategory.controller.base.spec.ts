@@ -20,27 +20,35 @@ const existingId = "existingId";
 const CREATE_INPUT = {
   categoryName: "exampleCategoryName",
   createdAt: new Date(),
+  description: "exampleDescription",
   id: "exampleId",
+  typeField: "exampleTypeField",
   updatedAt: new Date(),
 };
 const CREATE_RESULT = {
   categoryName: "exampleCategoryName",
   createdAt: new Date(),
+  description: "exampleDescription",
   id: "exampleId",
+  typeField: "exampleTypeField",
   updatedAt: new Date(),
 };
 const FIND_MANY_RESULT = [
   {
     categoryName: "exampleCategoryName",
     createdAt: new Date(),
+    description: "exampleDescription",
     id: "exampleId",
+    typeField: "exampleTypeField",
     updatedAt: new Date(),
   },
 ];
 const FIND_ONE_RESULT = {
   categoryName: "exampleCategoryName",
   createdAt: new Date(),
+  description: "exampleDescription",
   id: "exampleId",
+  typeField: "exampleTypeField",
   updatedAt: new Date(),
 };
 

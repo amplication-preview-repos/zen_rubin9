@@ -39,11 +39,30 @@ export class DbcParsedDataControllerBase {
               connect: data.dbcCategory,
             }
           : undefined,
+
+        device: data.device
+          ? {
+              connect: data.device,
+            }
+          : undefined,
+
+        fileImportLog: data.fileImportLog
+          ? {
+              connect: data.fileImportLog,
+            }
+          : undefined,
+
+        user: data.user
+          ? {
+              connect: data.user,
+            }
+          : undefined,
       },
       select: {
         codeName: true,
         codeValue: true,
         createdAt: true,
+        dataType: true,
 
         dbcCategory: {
           select: {
@@ -52,8 +71,31 @@ export class DbcParsedDataControllerBase {
         },
 
         description: true,
+
+        device: {
+          select: {
+            id: true,
+          },
+        },
+
+        fileImportLog: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
+        rawData: true,
+        sourceLine: true,
         updatedAt: true,
+
+        user: {
+          select: {
+            id: true,
+          },
+        },
+
+        valid: true,
       },
     });
   }
@@ -71,6 +113,7 @@ export class DbcParsedDataControllerBase {
         codeName: true,
         codeValue: true,
         createdAt: true,
+        dataType: true,
 
         dbcCategory: {
           select: {
@@ -79,8 +122,31 @@ export class DbcParsedDataControllerBase {
         },
 
         description: true,
+
+        device: {
+          select: {
+            id: true,
+          },
+        },
+
+        fileImportLog: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
+        rawData: true,
+        sourceLine: true,
         updatedAt: true,
+
+        user: {
+          select: {
+            id: true,
+          },
+        },
+
+        valid: true,
       },
     });
   }
@@ -97,6 +163,7 @@ export class DbcParsedDataControllerBase {
         codeName: true,
         codeValue: true,
         createdAt: true,
+        dataType: true,
 
         dbcCategory: {
           select: {
@@ -105,8 +172,31 @@ export class DbcParsedDataControllerBase {
         },
 
         description: true,
+
+        device: {
+          select: {
+            id: true,
+          },
+        },
+
+        fileImportLog: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
+        rawData: true,
+        sourceLine: true,
         updatedAt: true,
+
+        user: {
+          select: {
+            id: true,
+          },
+        },
+
+        valid: true,
       },
     });
     if (result === null) {
@@ -135,11 +225,30 @@ export class DbcParsedDataControllerBase {
                 connect: data.dbcCategory,
               }
             : undefined,
+
+          device: data.device
+            ? {
+                connect: data.device,
+              }
+            : undefined,
+
+          fileImportLog: data.fileImportLog
+            ? {
+                connect: data.fileImportLog,
+              }
+            : undefined,
+
+          user: data.user
+            ? {
+                connect: data.user,
+              }
+            : undefined,
         },
         select: {
           codeName: true,
           codeValue: true,
           createdAt: true,
+          dataType: true,
 
           dbcCategory: {
             select: {
@@ -148,8 +257,31 @@ export class DbcParsedDataControllerBase {
           },
 
           description: true,
+
+          device: {
+            select: {
+              id: true,
+            },
+          },
+
+          fileImportLog: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
+          rawData: true,
+          sourceLine: true,
           updatedAt: true,
+
+          user: {
+            select: {
+              id: true,
+            },
+          },
+
+          valid: true,
         },
       });
     } catch (error) {
@@ -175,6 +307,7 @@ export class DbcParsedDataControllerBase {
           codeName: true,
           codeValue: true,
           createdAt: true,
+          dataType: true,
 
           dbcCategory: {
             select: {
@@ -183,8 +316,31 @@ export class DbcParsedDataControllerBase {
           },
 
           description: true,
+
+          device: {
+            select: {
+              id: true,
+            },
+          },
+
+          fileImportLog: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
+          rawData: true,
+          sourceLine: true,
           updatedAt: true,
+
+          user: {
+            select: {
+              id: true,
+            },
+          },
+
+          valid: true,
         },
       });
     } catch (error) {

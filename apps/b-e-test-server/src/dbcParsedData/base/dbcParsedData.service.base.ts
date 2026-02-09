@@ -15,6 +15,9 @@ import {
   Prisma,
   DbcParsedData as PrismaDbcParsedData,
   DbcCategory as PrismaDbcCategory,
+  Device as PrismaDevice,
+  FileImportLog as PrismaFileImportLog,
+  User as PrismaUser,
 } from "@prisma/client";
 
 export class DbcParsedDataServiceBase {
@@ -58,5 +61,31 @@ export class DbcParsedDataServiceBase {
         where: { id: parentId },
       })
       .dbcCategory();
+  }
+
+  async getDevice(parentId: string): Promise<PrismaDevice | null> {
+    return this.prisma.dbcParsedData
+      .findUnique({
+        where: { id: parentId },
+      })
+      .device();
+  }
+
+  async getFileImportLog(
+    parentId: string
+  ): Promise<PrismaFileImportLog | null> {
+    return this.prisma.dbcParsedData
+      .findUnique({
+        where: { id: parentId },
+      })
+      .fileImportLog();
+  }
+
+  async getUser(parentId: string): Promise<PrismaUser | null> {
+    return this.prisma.dbcParsedData
+      .findUnique({
+        where: { id: parentId },
+      })
+      .user();
   }
 }

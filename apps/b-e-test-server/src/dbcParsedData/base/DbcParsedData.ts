@@ -11,15 +11,24 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+
 import {
   IsString,
   MaxLength,
   IsOptional,
   IsDate,
   ValidateNested,
+  IsInt,
+  Min,
+  Max,
+  IsBoolean,
 } from "class-validator";
+
 import { Type } from "class-transformer";
 import { DbcCategory } from "../../dbcCategory/base/DbcCategory";
+import { Device } from "../../device/base/Device";
+import { FileImportLog } from "../../fileImportLog/base/FileImportLog";
+import { User } from "../../user/base/User";
 
 @ObjectType()
 class DbcParsedData {
@@ -57,6 +66,18 @@ class DbcParsedData {
 
   @ApiProperty({
     required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  dataType!: string | null;
+
+  @ApiProperty({
+    required: false,
     type: () => DbcCategory,
   })
   @ValidateNested()
@@ -77,6 +98,24 @@ class DbcParsedData {
   description!: string | null;
 
   @ApiProperty({
+    required: false,
+    type: () => Device,
+  })
+  @ValidateNested()
+  @Type(() => Device)
+  @IsOptional()
+  device?: Device | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => FileImportLog,
+  })
+  @ValidateNested()
+  @Type(() => FileImportLog)
+  @IsOptional()
+  fileImportLog?: FileImportLog | null;
+
+  @ApiProperty({
     required: true,
     type: String,
   })
@@ -85,12 +124,57 @@ class DbcParsedData {
   id!: string;
 
   @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  rawData!: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsInt()
+  @Min(-999999999)
+  @Max(999999999)
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  sourceLine!: number | null;
+
+  @ApiProperty({
     required: true,
   })
   @IsDate()
   @Type(() => Date)
   @Field(() => Date)
   updatedAt!: Date;
+
+  @ApiProperty({
+    required: false,
+    type: () => User,
+  })
+  @ValidateNested()
+  @Type(() => User)
+  @IsOptional()
+  user?: User | null;
+
+  @ApiProperty({
+    required: false,
+    type: Boolean,
+  })
+  @IsBoolean()
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  valid!: boolean | null;
 }
 
 export { DbcParsedData as DbcParsedData };

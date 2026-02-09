@@ -38,7 +38,9 @@ export class DbcCategoryControllerBase {
       select: {
         categoryName: true,
         createdAt: true,
+        description: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -54,7 +56,9 @@ export class DbcCategoryControllerBase {
       select: {
         categoryName: true,
         createdAt: true,
+        description: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -71,7 +75,9 @@ export class DbcCategoryControllerBase {
       select: {
         categoryName: true,
         createdAt: true,
+        description: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -97,7 +103,9 @@ export class DbcCategoryControllerBase {
         select: {
           categoryName: true,
           createdAt: true,
+          description: true,
           id: true,
+          typeField: true,
           updatedAt: true,
         },
       });
@@ -123,7 +131,9 @@ export class DbcCategoryControllerBase {
         select: {
           categoryName: true,
           createdAt: true,
+          description: true,
           id: true,
+          typeField: true,
           updatedAt: true,
         },
       });
@@ -150,6 +160,7 @@ export class DbcCategoryControllerBase {
         codeName: true,
         codeValue: true,
         createdAt: true,
+        dataType: true,
 
         dbcCategory: {
           select: {
@@ -158,8 +169,31 @@ export class DbcCategoryControllerBase {
         },
 
         description: true,
+
+        device: {
+          select: {
+            id: true,
+          },
+        },
+
+        fileImportLog: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
+        rawData: true,
+        sourceLine: true,
         updatedAt: true,
+
+        user: {
+          select: {
+            id: true,
+          },
+        },
+
+        valid: true,
       },
     });
     if (results === null) {

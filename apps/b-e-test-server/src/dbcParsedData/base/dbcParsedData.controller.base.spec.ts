@@ -21,35 +21,51 @@ const CREATE_INPUT = {
   codeName: "exampleCodeName",
   codeValue: "exampleCodeValue",
   createdAt: new Date(),
+  dataType: "exampleDataType",
   description: "exampleDescription",
   id: "exampleId",
+  rawData: "exampleRawData",
+  sourceLine: 42,
   updatedAt: new Date(),
+  valid: "true",
 };
 const CREATE_RESULT = {
   codeName: "exampleCodeName",
   codeValue: "exampleCodeValue",
   createdAt: new Date(),
+  dataType: "exampleDataType",
   description: "exampleDescription",
   id: "exampleId",
+  rawData: "exampleRawData",
+  sourceLine: 42,
   updatedAt: new Date(),
+  valid: "true",
 };
 const FIND_MANY_RESULT = [
   {
     codeName: "exampleCodeName",
     codeValue: "exampleCodeValue",
     createdAt: new Date(),
+    dataType: "exampleDataType",
     description: "exampleDescription",
     id: "exampleId",
+    rawData: "exampleRawData",
+    sourceLine: 42,
     updatedAt: new Date(),
+    valid: "true",
   },
 ];
 const FIND_ONE_RESULT = {
   codeName: "exampleCodeName",
   codeValue: "exampleCodeValue",
   createdAt: new Date(),
+  dataType: "exampleDataType",
   description: "exampleDescription",
   id: "exampleId",
+  rawData: "exampleRawData",
+  sourceLine: 42,
   updatedAt: new Date(),
+  valid: "true",
 };
 
 const service = {

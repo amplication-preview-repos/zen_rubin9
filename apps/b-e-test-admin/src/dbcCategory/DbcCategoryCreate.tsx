@@ -26,6 +26,8 @@ export const DbcCategoryCreate = (props: CreateProps): React.ReactElement => {
             format={(value: any) => value && value.map((v: any) => v.id)}
           />
         </ReferenceArrayInput>
+        <TextInput label="description" multiline source="description" />
+        <TextInput label="type" source="typeField" />
       </SimpleForm>
     </Create>
   );
