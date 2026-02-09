@@ -1,4 +1,6 @@
 import { Module } from "@nestjs/common";
+import { DbcCategoryModule } from "./dbcCategory/dbcCategory.module";
+import { DbcParsedDataModule } from "./dbcParsedData/dbcParsedData.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -11,6 +13,8 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 @Module({
   controllers: [],
   imports: [
+    DbcCategoryModule,
+    DbcParsedDataModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

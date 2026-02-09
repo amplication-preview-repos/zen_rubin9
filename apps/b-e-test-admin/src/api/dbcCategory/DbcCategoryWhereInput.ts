@@ -1,0 +1,9 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DbcParsedDataListRelationFilter } from "../dbcParsedData/DbcParsedDataListRelationFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type DbcCategoryWhereInput = {
+  categoryName?: StringNullableFilter;
+  dbcParsedDataItems?: DbcParsedDataListRelationFilter;
+  id?: StringFilter;
+};
